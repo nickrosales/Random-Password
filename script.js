@@ -57,11 +57,8 @@ function generatePassword() {
   for(var i = 0; i < userInput.passLength; i++) {
     myPass.push(passwordChars[makeRandom(passwordChars.length)])
   }
+
  myPass = editPass(userInput, myPass)
-
-
-
-
 
   return myPass.join("")
 }
@@ -70,19 +67,19 @@ function editPass(userInput, myPass) {
   for(i = 0; i < 4; i++) {
     if (myPass.some(r=> numbers.includes(r))) {
     } else if (userInput.nums) {
-        myPass.splice(0, 1, "3")
+        myPass.splice(0, 1, numbers[makeRandom(numbers.length)])
     }
     if (myPass.some(r=> lower.includes(r))) {
     } else if (userInput.lowerCase) {
-        myPass.splice(1, 1, "j")
+        myPass.splice(1, 1, lower[makeRandom(lower.length)])
     }
     if (myPass.some(r=> caps.includes(r))) {
     } else if (userInput.upper) {
-        myPass.splice(2, 1, "K")
+        myPass.splice(2, 1, caps[makeRandom(caps.length)])
     }
     if (myPass.some(r=> symbols.includes(r))) {
     } else if (userInput.sym) {
-        myPass.splice(3, 1, "%")
+        myPass.splice(3, 1, symbols[makeRandom(symbols.length)])
     }
   }
   return myPass
